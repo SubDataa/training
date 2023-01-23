@@ -16,6 +16,9 @@
 		63FC0AF8297ECCCD00DE78BA /* trainingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC0AF7297ECCCD00DE78BA /* trainingTests.swift */; };
 		63FC0B02297ECCCD00DE78BA /* trainingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC0B01297ECCCD00DE78BA /* trainingUITests.swift */; };
 		63FC0B04297ECCCD00DE78BA /* trainingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC0B03297ECCCD00DE78BA /* trainingUITestsLaunchTests.swift */; };
+		63FC0B14297ECE0500DE78BA /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC0B13297ECE0500DE78BA /* Service.swift */; };
+		63FC0B18297ED18600DE78BA /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC0B16297ED18600DE78BA /* MovieCell.swift */; };
+		63FC0B19297ED18600DE78BA /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FC0B17297ED18600DE78BA /* MovieCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		63FC0AFD297ECCCD00DE78BA /* trainingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = trainingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63FC0B01297ECCCD00DE78BA /* trainingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trainingUITests.swift; sourceTree = "<group>"; };
 		63FC0B03297ECCCD00DE78BA /* trainingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trainingUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		63FC0B13297ECE0500DE78BA /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		63FC0B16297ED18600DE78BA /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		63FC0B17297ED18600DE78BA /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +105,12 @@
 		63FC0ADF297ECCCB00DE78BA /* training */ = {
 			isa = PBXGroup;
 			children = (
+				63FC0B12297ECD2C00DE78BA /* Controller */,
+				63FC0B11297ECD2600DE78BA /* View */,
+				63FC0B10297ECD1200DE78BA /* Model */,
 				63FC0AE0297ECCCB00DE78BA /* AppDelegate.swift */,
 				63FC0AE2297ECCCB00DE78BA /* SceneDelegate.swift */,
-				63FC0AE4297ECCCB00DE78BA /* ViewController.swift */,
-				63FC0AE6297ECCCB00DE78BA /* Main.storyboard */,
 				63FC0AE9297ECCCD00DE78BA /* Assets.xcassets */,
-				63FC0AEB297ECCCD00DE78BA /* LaunchScreen.storyboard */,
 				63FC0AEE297ECCCD00DE78BA /* Info.plist */,
 			);
 			path = training;
@@ -127,6 +133,33 @@
 			path = trainingUITests;
 			sourceTree = "<group>";
 		};
+		63FC0B10297ECD1200DE78BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				63FC0B13297ECE0500DE78BA /* Service.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		63FC0B11297ECD2600DE78BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				63FC0B16297ED18600DE78BA /* MovieCell.swift */,
+				63FC0B17297ED18600DE78BA /* MovieCell.xib */,
+				63FC0AE6297ECCCB00DE78BA /* Main.storyboard */,
+				63FC0AEB297ECCCD00DE78BA /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		63FC0B12297ECD2C00DE78BA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				63FC0AE4297ECCCB00DE78BA /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,6 +170,7 @@
 				63FC0AD9297ECCCB00DE78BA /* Sources */,
 				63FC0ADA297ECCCB00DE78BA /* Frameworks */,
 				63FC0ADB297ECCCB00DE78BA /* Resources */,
+				63FC0B15297ECFA200DE78BA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -233,6 +267,7 @@
 			files = (
 				63FC0AED297ECCCD00DE78BA /* LaunchScreen.storyboard in Resources */,
 				63FC0AEA297ECCCD00DE78BA /* Assets.xcassets in Resources */,
+				63FC0B19297ED18600DE78BA /* MovieCell.xib in Resources */,
 				63FC0AE8297ECCCB00DE78BA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,13 +288,35 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		63FC0B15297ECFA200DE78BA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		63FC0AD9297ECCCB00DE78BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				63FC0AE5297ECCCB00DE78BA /* ViewController.swift in Sources */,
+				63FC0B14297ECE0500DE78BA /* Service.swift in Sources */,
 				63FC0AE1297ECCCB00DE78BA /* AppDelegate.swift in Sources */,
+				63FC0B18297ED18600DE78BA /* MovieCell.swift in Sources */,
 				63FC0AE3297ECCCB00DE78BA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
