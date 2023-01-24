@@ -17,9 +17,10 @@ struct Result: Decodable {
     let title: String
     let posterPath: String
     let releaseDate: String
+    let overview: String
 
     enum CodingKeys: String, CodingKey {
-        case title
+        case title, overview
         case backdropPath = "backdrop_path"
         case posterPath = "poster_path"
         case releaseDate = "release_date"
