@@ -7,15 +7,12 @@
 
 import Foundation
 import UIKit
-import SDWebImage
+
 
 class Service {
-    // Singleton
+
     static var shared = Service()
     private init () {}
-    
-    
-    // INJECT
     var task: URLSessionDataTask?
     private var session = URLSession(configuration: .default)
     init(session: URLSession) {
@@ -43,9 +40,8 @@ class Service {
         task?.resume()
     }
     
-    func createURLForPoster(poster: String) -> String{
+    func createURLForPoster(poster: String) -> String {
         let url = "https://image.tmdb.org/t/p/w500/" + poster
         return url
     }
-    
 }

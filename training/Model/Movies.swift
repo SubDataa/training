@@ -24,6 +24,5 @@ struct Result: Decodable {
         case backdropPath = "backdrop_path"
         case posterPath = "poster_path"
         case releaseDate = "release_date"
-       
     }
 }
