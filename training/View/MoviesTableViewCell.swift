@@ -1,5 +1,5 @@
 //
-//  MovieCell.swift
+//  MoviesTableViewCell.swift
 //  training
 //
 //  Created by Thibault Ballof on 23/01/2023.
@@ -7,11 +7,13 @@
 
 import UIKit
 
-class MovieCell: UITableViewCell {
+class MoviesTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var moviePoster: UIImageView!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var tittleLabel: UILabel!
+  
+    @IBOutlet weak var posterImage: UIImageView!
+
+    @IBOutlet weak var overviewLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,5 +25,5 @@ class MovieCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+   
 }

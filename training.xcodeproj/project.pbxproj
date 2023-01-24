@@ -17,9 +17,10 @@
 		63FC0B02297ECCCD00DE78BA /* trainingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC0B01297ECCCD00DE78BA /* trainingUITests.swift */; };
 		63FC0B04297ECCCD00DE78BA /* trainingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC0B03297ECCCD00DE78BA /* trainingUITestsLaunchTests.swift */; };
 		63FC0B14297ECE0500DE78BA /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC0B13297ECE0500DE78BA /* Service.swift */; };
-		63FC0B18297ED18600DE78BA /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC0B16297ED18600DE78BA /* MovieCell.swift */; };
-		63FC0B19297ED18600DE78BA /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FC0B17297ED18600DE78BA /* MovieCell.xib */; };
 		63FC0B1B297EDFF200DE78BA /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC0B1A297EDFF200DE78BA /* Movies.swift */; };
+		63FC0B1E297EE54900DE78BA /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 63FC0B1D297EE54900DE78BA /* SDWebImage */; };
+		63FC0B21297EEBC300DE78BA /* MoviesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC0B1F297EEBC300DE78BA /* MoviesTableViewCell.swift */; };
+		63FC0B22297EEBC300DE78BA /* MoviesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FC0B20297EEBC300DE78BA /* MoviesTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,9 +55,9 @@
 		63FC0B01297ECCCD00DE78BA /* trainingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trainingUITests.swift; sourceTree = "<group>"; };
 		63FC0B03297ECCCD00DE78BA /* trainingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trainingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		63FC0B13297ECE0500DE78BA /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		63FC0B16297ED18600DE78BA /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
-		63FC0B17297ED18600DE78BA /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
 		63FC0B1A297EDFF200DE78BA /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
+		63FC0B1F297EEBC300DE78BA /* MoviesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTableViewCell.swift; sourceTree = "<group>"; };
+		63FC0B20297EEBC300DE78BA /* MoviesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63FC0B1E297EE54900DE78BA /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,10 +149,10 @@
 		63FC0B11297ECD2600DE78BA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				63FC0B16297ED18600DE78BA /* MovieCell.swift */,
-				63FC0B17297ED18600DE78BA /* MovieCell.xib */,
 				63FC0AE6297ECCCB00DE78BA /* Main.storyboard */,
 				63FC0AEB297ECCCD00DE78BA /* LaunchScreen.storyboard */,
+				63FC0B1F297EEBC300DE78BA /* MoviesTableViewCell.swift */,
+				63FC0B20297EEBC300DE78BA /* MoviesTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -180,6 +182,9 @@
 			dependencies = (
 			);
 			name = training;
+			packageProductDependencies = (
+				63FC0B1D297EE54900DE78BA /* SDWebImage */,
+			);
 			productName = training;
 			productReference = 63FC0ADD297ECCCB00DE78BA /* training.app */;
 			productType = "com.apple.product-type.application";
@@ -252,6 +257,9 @@
 				Base,
 			);
 			mainGroup = 63FC0AD4297ECCCB00DE78BA;
+			packageReferences = (
+				63FC0B1C297EE54900DE78BA /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 63FC0ADE297ECCCB00DE78BA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -270,7 +278,7 @@
 			files = (
 				63FC0AED297ECCCD00DE78BA /* LaunchScreen.storyboard in Resources */,
 				63FC0AEA297ECCCD00DE78BA /* Assets.xcassets in Resources */,
-				63FC0B19297ED18600DE78BA /* MovieCell.xib in Resources */,
+				63FC0B22297EEBC300DE78BA /* MoviesTableViewCell.xib in Resources */,
 				63FC0AE8297ECCCB00DE78BA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,11 +324,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63FC0B21297EEBC300DE78BA /* MoviesTableViewCell.swift in Sources */,
 				63FC0AE5297ECCCB00DE78BA /* ViewController.swift in Sources */,
 				63FC0B14297ECE0500DE78BA /* Service.swift in Sources */,
 				63FC0B1B297EDFF200DE78BA /* Movies.swift in Sources */,
 				63FC0AE1297ECCCB00DE78BA /* AppDelegate.swift in Sources */,
-				63FC0B18297ED18600DE78BA /* MovieCell.swift in Sources */,
 				63FC0AE3297ECCCB00DE78BA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -657,6 +665,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		63FC0B1C297EE54900DE78BA /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		63FC0B1D297EE54900DE78BA /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63FC0B1C297EE54900DE78BA /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 63FC0AD5297ECCCB00DE78BA /* Project object */;
 }
