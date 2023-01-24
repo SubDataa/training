@@ -10,9 +10,10 @@ import SDWebImage
 
 class MoviesListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    var movies: [Result] = []
-    let nameNib = "MoviesTableViewCell"
-    let identifier = "MoviesCell"
+    private var movies: [Result] = []
+    private let nameNib = "MoviesTableViewCell"
+    private let identifier = "MoviesCell"
+    private var selectedMovie: Result!
 
     override func viewDidLoad() {
         tableView.register(UINib.init(nibName: nameNib, bundle: nil), forCellReuseIdentifier: identifier)
@@ -30,7 +31,8 @@ class MoviesListViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailMoviesVC" {
-            //guard let detailMoviesVC = segue.destination as? DetailMoviesViewController else { return }
+            guard let detailMoviesVC = segue.destination as? DetailMoviesViewController else { return }
+            detailMoviesVC.selectedMovie = selectedMovie
         }
     }
 }
@@ -49,5 +51,11 @@ extension MoviesListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 187
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+        selectedMovie = movies[indexPath.row]
+        performSegue(withIdentifier: "DetailMoviesVC", sender: self)
     }
 }
