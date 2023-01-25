@@ -23,6 +23,7 @@ class MoviesListViewController: UIViewController {
             if success {
                 self.movies.append(contentsOf: data!.results)
                 print(self.movies)
+                self.tableView.reloadData()
             }
         }
         super.viewDidLoad()
@@ -38,9 +39,11 @@ class MoviesListViewController: UIViewController {
 }
 
 extension MoviesListViewController: UITableViewDelegate, UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? MoviesTableViewCell else { return UITableViewCell() }
         cell.titleLabel.text = movies[indexPath.row].title
@@ -49,6 +52,7 @@ extension MoviesListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.posterImage.sd_setImage(with: URL(string: poster), placeholderImage: UIImage(named: "placeholder.png"))
         return cell
     }
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 187
     }
