@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 class Service {
 
     static var shared = Service()
@@ -23,6 +22,7 @@ class Service {
         var request = URLRequest(url: apiUrl!)
         request.httpMethod = "GET"
         task = session.dataTask(with: request) { (data, response, error) in
+            DispatchQueue.main.async {
                 guard let data = data, error == nil else {
                     callback(false, nil)
                     return
@@ -36,10 +36,11 @@ class Service {
                     return
                 }
                 callback(true, responseJSON)
+            }
         }
         task?.resume()
     }
-    
+
     func createURLForPoster(poster: String) -> String {
         let url = "https://image.tmdb.org/t/p/w500/" + poster
         return url
