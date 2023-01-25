@@ -32,7 +32,6 @@ class MovieDetailViewController: UIViewController {
     }
 
     private func setupUI() {
-
         posterImage.layer.borderWidth = 2
         posterImage.layer.borderColor = UIColor(white: 1, alpha: 1).cgColor
         posterImage.contentMode = .scaleAspectFill
@@ -41,6 +40,8 @@ class MovieDetailViewController: UIViewController {
         titleLabel.layer.shadowColor = UIColor.black.cgColor
         titleLabel.layer.shadowRadius = 20
         releaseDateLabel.textColor = UIColor.white
+        releaseDateLabel.layer.shadowColor = UIColor.black.cgColor
+        releaseDateLabel.layer.shadowRadius = 60
         overviewLabel.numberOfLines = 0
     }
 }
