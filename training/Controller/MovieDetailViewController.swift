@@ -1,19 +1,20 @@
 //
-//  DetailMoviesViewController.swift
+//  DetailViewController.swift
 //  training
 //
-//  Created by Thibault Ballof on 24/01/2023.
+//  Created by Thibault Ballof on 25/01/2023.
 //
 
 import UIKit
 import SDWebImage
 
-class DetailMoviesViewController: UIViewController {
+class MovieDetailViewController: UIViewController {
 
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var backdropImage: UIImageView!
+    @IBOutlet weak var releaseDateLabel: UILabel!
 
     var selectedMovie: Result?
     override func viewDidLoad() {
@@ -26,11 +27,12 @@ class DetailMoviesViewController: UIViewController {
             backdropImage.sd_setImage(with: URL(string: backdropUrl), placeholderImage: UIImage(named: "placeholder.png"))
             titleLabel.text = selectedMovie.title
             overviewLabel.text = selectedMovie.overview
+            releaseDateLabel.text = selectedMovie.releaseDate
         }
-        // Do any additional setup after loading the view.
     }
 
     private func setupUI() {
+
         posterImage.layer.borderWidth = 2
         posterImage.layer.borderColor = UIColor(white: 1, alpha: 1).cgColor
         posterImage.contentMode = .scaleAspectFill
@@ -38,17 +40,7 @@ class DetailMoviesViewController: UIViewController {
         titleLabel.textColor = UIColor.white
         titleLabel.layer.shadowColor = UIColor.black.cgColor
         titleLabel.layer.shadowRadius = 20
+        releaseDateLabel.textColor = UIColor.white
+        overviewLabel.numberOfLines = 0
     }
-    /*
-
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
