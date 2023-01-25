@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 class Service {
 
     static var shared = Service()
@@ -18,11 +17,14 @@ class Service {
     init(session: URLSession) {
         self.session = session
     }
+
     func fetchMovies(callback: @escaping (Bool, Movies?) -> Void) {
-        let apiUrl = URL(string: "https://api.themoviedb.org/3/trending/movie/day?api_key=edef578eed4cd92a64fa40066ad4020b")
-        var request = URLRequest(url: apiUrl!)
+        guard let apiUrl = URL(string: "https://api.themoviedb.org/3/trending/movie/day?api_key=edef578eed4cd92a64fa40066ad4020b") else { return }
+
+        var request = URLRequest(url: apiUrl)
         request.httpMethod = "GET"
         task = session.dataTask(with: request) { (data, response, error) in
+            DispatchQueue.main.async {
                 guard let data = data, error == nil else {
                     callback(false, nil)
                     return
@@ -36,10 +38,11 @@ class Service {
                     return
                 }
                 callback(true, responseJSON)
+            }
         }
         task?.resume()
     }
-    
+
     func createURLForPoster(poster: String) -> String {
         let url = "https://image.tmdb.org/t/p/w500/" + poster
         return url
