@@ -8,17 +8,19 @@
 import UIKit
 import SDWebImage
 
-class MovieDetailViewController: UIViewController {
+final class MovieDetailViewController: UIViewController {
 
-    @IBOutlet weak var overviewLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var posterImage: UIImageView!
-    @IBOutlet weak var backdropImage: UIImageView!
-    @IBOutlet weak var releaseDateLabel: UILabel!
+    @IBOutlet private weak var overviewLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var posterImage: UIImageView!
+    @IBOutlet private weak var backdropImage: UIImageView!
+    @IBOutlet private weak var releaseDateLabel: UILabel!
 
     var selectedMovie: Result?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setupUI()
         if let selectedMovie = selectedMovie {
             let posterUrl = Service.shared.createURLForPoster(poster: selectedMovie.posterPath)

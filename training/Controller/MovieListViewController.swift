@@ -8,30 +8,24 @@
 import UIKit
 import SDWebImage
 
-class MovieListViewController: UIViewController {
+final class MovieListViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
 
     private var movies: [Result] = []
     private let nameNib = "MoviesTableViewCell"
     private let identifier = "MoviesCell"
-    private var selectedMovie: Result!
+    private var selectedMovie: Result?
 
     override func viewDidLoad() {
-        navigationItem.title = "POPULAR MOVIES"
+        super.viewDidLoad()
+
+        navigationItem.title = NSLocalizedString("NavTitle", comment: "Title Navigation bar")
         tableView.register(UINib.init(nibName: nameNib, bundle: nil), forCellReuseIdentifier: identifier)
         tableView.dataSource = self
         tableView.delegate = self
-        super.viewDidLoad()
         getMovie()
         // Do any additional setup after loading the view.
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // if segue.identifier == "DetailMoviesVC" {
-        guard let detailMoviesVC = segue.destination as? MovieDetailViewController else { return }
-        detailMoviesVC.selectedMovie = selectedMovie
-        // }
     }
 
     private func getMovie() {
@@ -53,6 +47,7 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? MoviesTableViewCell else { return UITableViewCell() }
+
         cell.titleLabel.text = movies[indexPath.row].title
         cell.overviewLabel.text = movies[indexPath.row].overview
         let poster = Service.shared.createURLForPoster(poster: movies[indexPath.row].posterPath)
