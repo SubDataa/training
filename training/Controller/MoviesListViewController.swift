@@ -19,14 +19,8 @@ class MoviesListViewController: UIViewController {
         tableView.register(UINib.init(nibName: nameNib, bundle: nil), forCellReuseIdentifier: identifier)
         tableView.dataSource = self
         tableView.delegate = self
-        Service.shared.fetchMovies { (success, data) in
-            if success {
-                self.movies.append(contentsOf: data!.results)
-                print(self.movies)
-                self.tableView.reloadData()
-            }
-        }
         super.viewDidLoad()
+        getMovie()
         // Do any additional setup after loading the view.
     }
 
@@ -34,6 +28,16 @@ class MoviesListViewController: UIViewController {
         if segue.identifier == "DetailMoviesVC" {
             guard let detailMoviesVC = segue.destination as? DetailMoviesViewController else { return }
             detailMoviesVC.selectedMovie = selectedMovie
+        }
+    }
+
+    private func getMovie() {
+        Service.shared.fetchMovies { (success, data) in
+            if success {
+                self.movies.append(contentsOf: data!.results)
+                print(self.movies)
+                self.tableView.reloadData()
+            }
         }
     }
 }
