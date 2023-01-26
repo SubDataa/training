@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 
 final class MovieListViewModel {
-    var movies: [Result] = []
+    var movies: [MoviesResult] = []
     var updateUI: (() -> Void)?
 
     func getMovie() {

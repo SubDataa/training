@@ -38,9 +38,17 @@ final class MoviesTableViewCell: UITableViewCell {
         }
     }
 
-    func configure(model: Result, poster: String) {
+    func configure(model: SetupModel) {
         overviewLabel.text = model.overview
         titleLabel.text = model.title
+       let poster = model.imageURL
         posterImage.sd_setImage(with: URL(string: poster))
+    }
+}
+extension MoviesTableViewCell {
+    struct SetupModel {
+        let title: String
+        let overview: String
+        let imageURL: String
     }
 }

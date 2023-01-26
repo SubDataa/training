@@ -16,7 +16,7 @@ final class MovieDetailViewController: UIViewController {
     @IBOutlet private weak var backdropImage: UIImageView!
     @IBOutlet private weak var releaseDateLabel: UILabel!
 
-    var selectedMovie: Result?
+    var selectedMovie: MoviesResult?
     var viewModel = MovieDetailViewModel()
 
     override func viewDidLoad() {
