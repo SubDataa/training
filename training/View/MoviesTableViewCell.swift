@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SDWebImage
 
-class MoviesTableViewCell: UITableViewCell {
+final class MoviesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var overviewLabel: UILabel!
@@ -35,5 +36,11 @@ class MoviesTableViewCell: UITableViewCell {
             frame.size.width -= 10
             super.frame = frame
         }
+    }
+
+    func configure(model: Result, poster: String) {
+        overviewLabel.text = model.overview
+        titleLabel.text = model.title
+        posterImage.sd_setImage(with: URL(string: poster))
     }
 }

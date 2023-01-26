@@ -45,10 +45,8 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? MoviesTableViewCell else { return UITableViewCell() }
 
-        cell.titleLabel.text = viewModel.movies[indexPath.row].title
-        cell.overviewLabel.text = viewModel.movies[indexPath.row].overview
-        let poster = Service.shared.createURLForPoster(poster: viewModel.movies[indexPath.row].posterPath)
-        cell.posterImage.sd_setImage(with: URL(string: poster), placeholderImage: UIImage(named: "placeholder.png"))
+        let posterImgURL = viewModel.getURLImage(imgPath: viewModel.movies[indexPath.row].posterPath)
+        cell.configure(model: viewModel.movies[indexPath.row], poster: posterImgURL)
 
         return cell
     }

@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import UIKit
+import SDWebImage
 
 final class MovieListViewModel {
     var movies: [Result] = []
@@ -20,5 +22,9 @@ final class MovieListViewModel {
                 self?.updateUI?()
             }
         }
+    }
+    func getURLImage(imgPath: String) -> String {
+        let imgURL = "https://image.tmdb.org/t/p/w500/" + imgPath
+        return imgURL
     }
 }

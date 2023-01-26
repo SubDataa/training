@@ -49,11 +49,6 @@
                     <nil key="highlightedColor"/>
                     <color key="shadowColor" systemColor="labelColor"/>
                     <size key="shadowOffset" width="2" height="2"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="oPl-9d-veE"/>
-                        </mask>
-                    </variation>
                     <variation key="heightClass=compact-widthClass=compact">
                         <mask key="constraints">
                             <include reference="oPl-9d-veE"/>

@@ -42,9 +42,4 @@ class Service {
         }
         task?.resume()
     }
-
-    func createURLForPoster(poster: String) -> String {
-        let url = "https://image.tmdb.org/t/p/w500/" + poster
-        return url
-    }
 }
