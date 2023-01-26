@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MovieDetailViewModel {
+final class MovieDetailViewModel {
 
     func getURLImage(imgPath: String) -> String {
         let imgURL = "https://image.tmdb.org/t/p/w500/" + imgPath
