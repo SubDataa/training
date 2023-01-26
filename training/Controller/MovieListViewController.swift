@@ -12,12 +12,10 @@ final class MovieListViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 
-    
     private let nameNib = "MoviesTableViewCell"
     private let identifier = "MoviesCell"
     private var selectedMovie: Result?
-
-    private let viewModel = ViewModel()
+    private let viewModel = MovieListViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,18 +24,16 @@ final class MovieListViewController: UIViewController {
         tableView.register(UINib.init(nibName: nameNib, bundle: nil), forCellReuseIdentifier: identifier)
         tableView.dataSource = self
         tableView.delegate = self
-        //getMovie()
-
         viewModel.updateUI = { [weak self] in
             self?.tableView.reloadData()
-
         }
-        // Do any additional setup after loading the view.
     }
+
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         viewModel.getMovie()
     }
-    
 }
 
 extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {

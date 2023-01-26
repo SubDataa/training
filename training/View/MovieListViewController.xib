@@ -19,9 +19,8 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="T80-FM-Vhr">
-                    <rect key="frame" x="0.0" y="59" width="407" height="793"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="T80-FM-Vhr">
+                    <rect key="frame" x="0.0" y="59" width="393" height="793"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="18L-ci-2Zs" id="XZj-Ve-ie6"/>
@@ -31,6 +30,12 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="Koi-Qd-K82"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="T80-FM-Vhr" secondAttribute="bottom" id="XNs-Zc-ovd"/>
+                <constraint firstItem="T80-FM-Vhr" firstAttribute="top" secondItem="Koi-Qd-K82" secondAttribute="top" id="b6p-5M-PeZ"/>
+                <constraint firstItem="T80-FM-Vhr" firstAttribute="trailing" secondItem="Koi-Qd-K82" secondAttribute="trailing" id="gGW-jK-SVN"/>
+                <constraint firstItem="T80-FM-Vhr" firstAttribute="leading" secondItem="Koi-Qd-K82" secondAttribute="leading" id="y1c-fK-e5l"/>
+            </constraints>
             <point key="canvasLocation" x="-411.4503816793893" y="-442.25352112676057"/>
         </view>
     </objects>

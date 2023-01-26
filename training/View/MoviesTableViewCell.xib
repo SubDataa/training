@@ -16,18 +16,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="402" height="187"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="kn9-Z6-dpR">
-                        <rect key="frame" x="143.66666666666663" y="8.9999999999999982" width="238.33333333333337" height="26.333333333333329"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kn9-Z6-dpR">
+                        <rect key="frame" x="143.66666666666669" y="9" width="193.66666666666669" height="23"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="kn9-Z6-dpR" secondAttribute="height" multiplier="187:23" constant="24" id="ciE-o1-dGm"/>
+                            <constraint firstAttribute="width" secondItem="kn9-Z6-dpR" secondAttribute="height" multiplier="219:26" id="ujb-HU-flK"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2y-7V-4QY">
-                        <rect key="frame" x="140" y="40" width="248" height="69"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2y-7V-4QY">
+                        <rect key="frame" x="140" y="39.666666666666657" width="223" height="69"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="o2y-7V-4QY" secondAttribute="height" multiplier="223:69" id="fjs-VW-Po9"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -35,17 +37,19 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ESv-ls-dGL">
                         <rect key="frame" x="20.000000000000007" y="9" width="117.66666666666669" height="167"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="ESv-ls-dGL" secondAttribute="height" multiplier="105:149" id="wCc-ON-lBu"/>
+                            <constraint firstAttribute="width" constant="117.67" id="nFS-5U-4Ec"/>
+                            <constraint firstAttribute="height" constant="167" id="ycN-ik-GI8"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ESv-ls-dGL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="KV4-0g-zRb"/>
-                    <constraint firstAttribute="trailing" secondItem="kn9-Z6-dpR" secondAttribute="trailing" constant="20" id="PxS-a3-ZCY"/>
-                    <constraint firstItem="kn9-Z6-dpR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="XUL-Mh-fVn"/>
-                    <constraint firstAttribute="bottom" secondItem="ESv-ls-dGL" secondAttribute="bottom" constant="11" id="blo-9y-2vJ"/>
-                    <constraint firstItem="kn9-Z6-dpR" firstAttribute="leading" secondItem="ESv-ls-dGL" secondAttribute="trailing" constant="6" id="fj2-xj-d2c"/>
-                    <constraint firstItem="ESv-ls-dGL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="sJf-IH-yRS"/>
+                    <constraint firstItem="kn9-Z6-dpR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="7wW-gQ-Y5f"/>
+                    <constraint firstAttribute="trailing" secondItem="o2y-7V-4QY" secondAttribute="trailing" constant="39" id="B65-VS-0i4"/>
+                    <constraint firstItem="o2y-7V-4QY" firstAttribute="leading" secondItem="ESv-ls-dGL" secondAttribute="trailing" constant="2.3300000000000001" id="LA9-Bq-d1U"/>
+                    <constraint firstItem="ESv-ls-dGL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="P2m-Ye-bUM"/>
+                    <constraint firstItem="o2y-7V-4QY" firstAttribute="top" secondItem="kn9-Z6-dpR" secondAttribute="bottom" constant="7.6699999999999999" id="nNI-UP-cDi"/>
+                    <constraint firstItem="kn9-Z6-dpR" firstAttribute="leading" secondItem="ESv-ls-dGL" secondAttribute="trailing" constant="6" id="ozy-u7-SV1"/>
+                    <constraint firstItem="ESv-ls-dGL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="tww-FZ-Q8x"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
