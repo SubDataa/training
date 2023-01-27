@@ -5,7 +5,6 @@
 //  Created by Thibault Ballof on 23/01/2023.
 //
 
-import Foundation
 import UIKit
 
 class Service {
@@ -41,10 +40,5 @@ class Service {
             }
         }
         task?.resume()
-    }
-
-    func createURLForPoster(poster: String) -> String {
-        let url = "https://image.tmdb.org/t/p/w500/" + poster
-        return url
     }
 }

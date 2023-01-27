@@ -16,21 +16,14 @@ final class MovieDetailViewController: UIViewController {
     @IBOutlet private weak var backdropImage: UIImageView!
     @IBOutlet private weak var releaseDateLabel: UILabel!
 
-    var selectedMovie: Result?
+    var selectedMovie: MovieResult?
+    var viewModel = MovieDetailViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
-        if let selectedMovie = selectedMovie {
-            let posterUrl = Service.shared.createURLForPoster(poster: selectedMovie.posterPath)
-            let backdropUrl = Service.shared.createURLForPoster(poster: selectedMovie.backdropPath)
-            posterImage.sd_setImage(with: URL(string: posterUrl), placeholderImage: UIImage(named: "placeholder.png"))
-            backdropImage.sd_setImage(with: URL(string: backdropUrl), placeholderImage: UIImage(named: "placeholder.png"))
-            titleLabel.text = selectedMovie.title
-            overviewLabel.text = selectedMovie.overview
-            releaseDateLabel.text = selectedMovie.releaseDate
-        }
+        fillUI()
     }
 
     private func setupUI() {
@@ -45,5 +38,17 @@ final class MovieDetailViewController: UIViewController {
         releaseDateLabel.layer.shadowColor = UIColor.black.cgColor
         releaseDateLabel.layer.shadowRadius = 60
         overviewLabel.numberOfLines = 0
+    }
+
+    private func fillUI() {
+        if let selectedMovie = selectedMovie {
+            let posterURL = viewModel.getURLImage(imgPath: selectedMovie.posterPath)
+            posterImage.sd_setImage(with: URL(string: posterURL), placeholderImage: UIImage(named: "placeholder.png"))
+            let backdropURL = viewModel.getURLImage(imgPath: selectedMovie.backdropPath)
+            backdropImage.sd_setImage(with: URL(string: backdropURL), placeholderImage: UIImage(named: "placeholder.png"))
+            titleLabel.text = selectedMovie.title
+            overviewLabel.text = selectedMovie.overview
+            releaseDateLabel.text = selectedMovie.releaseDate
+        }
     }
 }

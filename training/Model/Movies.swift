@@ -8,11 +8,11 @@
 import Foundation
 
 struct Movies: Decodable {
-    let results: [Result]
+    let results: [MovieResult]
 }
 
 // MARK: - Result
-struct Result: Decodable {
+struct MovieResult: Decodable {
     let backdropPath: String
     let title: String
     let posterPath: String

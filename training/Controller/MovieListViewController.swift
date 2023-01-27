@@ -12,10 +12,10 @@ final class MovieListViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 
-    private var movies: [Result] = []
     private let nameNib = "MoviesTableViewCell"
     private let identifier = "MoviesCell"
-    private var selectedMovie: Result?
+    private var selectedMovie: MovieResult?
+    private let viewModel = MovieListViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,34 +24,29 @@ final class MovieListViewController: UIViewController {
         tableView.register(UINib.init(nibName: nameNib, bundle: nil), forCellReuseIdentifier: identifier)
         tableView.dataSource = self
         tableView.delegate = self
-        getMovie()
-        // Do any additional setup after loading the view.
+        viewModel.updateUI = { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
 
-    private func getMovie() {
-        Service.shared.fetchMovies { (success, data) in
-            if success {
-                self.movies.append(contentsOf: data!.results)
-                print(self.movies)
-                self.tableView.reloadData()
-            }
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        viewModel.getMovie()
     }
 }
 
 extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
+        return viewModel.movies.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? MoviesTableViewCell else { return UITableViewCell() }
 
-        cell.titleLabel.text = movies[indexPath.row].title
-        cell.overviewLabel.text = movies[indexPath.row].overview
-        let poster = Service.shared.createURLForPoster(poster: movies[indexPath.row].posterPath)
-        cell.posterImage.sd_setImage(with: URL(string: poster), placeholderImage: UIImage(named: "placeholder.png"))
+        let posterImgURL = viewModel.getURLImage(imgPath: viewModel.movies[indexPath.row].posterPath)
+        cell.configure(model: MoviesTableViewCell.SetupModel(title: viewModel.movies[indexPath.row].title, overview: viewModel.movies[indexPath.row].overview, imageURL: posterImgURL))
 
         return cell
     }
@@ -62,9 +57,9 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
-        selectedMovie = movies[indexPath.row]
-        let detailVC = MovieDetailViewController(nibName: "DetailViewController", bundle: nil)
-        detailVC.selectedMovie = movies[indexPath.row]
+        selectedMovie = viewModel.movies[indexPath.row]
+        let detailVC = MovieDetailViewController(nibName: "MovieDetailViewController", bundle: nil)
+        detailVC.selectedMovie = viewModel.movies[indexPath.row]
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }
