@@ -24,24 +24,10 @@ final class MoviesTableViewCell: UITableViewCell {
 
     }
 
-    override var frame: CGRect {
-        get {
-            return super.frame
-        }
-        set (newFrame) {
-            var frame =  newFrame
-            frame.origin.y += 4
-            frame.origin.x += 4
-            frame.size.height -= 10
-            frame.size.width -= 10
-            super.frame = frame
-        }
-    }
-
     func configure(model: SetupModel) {
         overviewLabel.text = model.overview
         titleLabel.text = model.title
-       let poster = model.imageURL
+        let poster = model.imageURL
         posterImage.sd_setImage(with: URL(string: poster))
     }
 }
