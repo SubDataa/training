@@ -17,7 +17,7 @@ final class MovieDetailViewController: UIViewController {
     @IBOutlet private weak var releaseDateLabel: UILabel!
 
     var selectedMovie: MoviesResult?
-    var viewModel = MovieDetailViewModel()
+    var viewModel: MovieDetailViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

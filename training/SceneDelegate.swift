@@ -16,7 +16,7 @@ func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options conn
 
         let window = UIWindow(windowScene: windowScene)
         let navController = UINavigationController()
-        let viewController = MovieListViewController()
+        let viewController = ViewControllerProvider.movieListViewController
         navController.title = "Popular Movies"
         navController.viewControllers = [viewController]
         window.rootViewController = navController

@@ -15,7 +15,7 @@ final class MovieListViewController: UIViewController {
     private let nameNib = "MoviesTableViewCell"
     private let identifier = "MoviesCell"
     private var selectedMovie: MoviesResult?
-    private let viewModel = MovieListViewModel()
+    var viewModel: MovieListViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +58,7 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         selectedMovie = viewModel.movies[indexPath.row]
-        let detailVC = MovieDetailViewController(nibName: "MovieDetailViewController", bundle: nil)
+        let detailVC = ViewControllerProvider.movieDetailViewController
         detailVC.selectedMovie = viewModel.movies[indexPath.row]
         navigationController?.pushViewController(detailVC, animated: true)
     }
