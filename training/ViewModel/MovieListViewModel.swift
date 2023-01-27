@@ -5,12 +5,11 @@
 //  Created by Thibault Ballof on 25/01/2023.
 //
 
-import Foundation
 import UIKit
 import SDWebImage
 
 final class MovieListViewModel {
-    var movies: [MoviesResult] = []
+    var movies: [MovieResult] = []
     var updateUI: (() -> Void)?
 
     func getMovie() {
@@ -23,8 +22,9 @@ final class MovieListViewModel {
             }
         }
     }
+
     func getURLImage(imgPath: String) -> String {
-        let imgURL = "https://image.tmdb.org/t/p/w500/" + imgPath
-        return imgURL
+        let fullImgURL = ImageURL.imgURL + imgPath
+        return fullImgURL
     }
 }
