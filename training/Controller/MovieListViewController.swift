@@ -21,6 +21,7 @@ final class MovieListViewController: UIViewController {
         super.viewDidLoad()
 
         navigationItem.title = NSLocalizedString("NavTitle", comment: "Title Navigation bar")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Mock", style: .plain, target: viewModel, action: #selector(viewModel.touchButton))
         tableView.register(UINib.init(nibName: nameNib, bundle: nil), forCellReuseIdentifier: identifier)
         tableView.dataSource = self
         tableView.delegate = self

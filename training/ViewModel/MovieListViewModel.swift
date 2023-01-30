@@ -12,6 +12,25 @@ import SDWebImage
 final class MovieListViewModel {
     var movies: [MoviesResult] = []
     var updateUI: (() -> Void)?
+    var buttonTapped: (() -> Void)?
+    var appConfig: AppConfiguration = .webService
+    var service: NetworkService
+    
+    init(service: Service) {
+        self.service = service
+    }
+
+    @objc func touchButton() {
+        switch appConfig {
+        case .webService:
+        appConfig = .mock
+        service = MockService()
+        case .mock:
+        appConfig = .webService
+        service = Service()
+        }
+        getMovie()
+    }
 
     func getMovie() {
 
