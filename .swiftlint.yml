@@ -29,11 +29,6 @@ custom_rules:
     name: "Featuring is forbidden in ViewControllers and must be handled by the ViewModel class"
     message: "Use of viewModel.isFeatureDisabled"
     severity: error
-  discouraged_image_literal:
-    name: "Discouraged Image Literal"
-    regex: "#imageLiteral"
-    message: "Please use UIImage(named:) instead"
-    severity: warning
     
 type_name:
     min_length: 1

@@ -57,9 +57,10 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailVC = ViewControllerProvider.movieDetailViewController else { return }
+
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         selectedMovie = viewModel.movies[indexPath.row]
-        guard let detailVC = ViewControllerProvider.movieDetailViewController else {return}
         detailVC.selectedMovie = viewModel.movies[indexPath.row]
         navigationController?.pushViewController(detailVC, animated: true)
     }

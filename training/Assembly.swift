@@ -10,6 +10,7 @@ import Swinject
 
 final class MovieAssembly: Assembly {
     public init() {}
+
     func assemble(container: Container) {
 
         container.register(MovieDetailViewController.self) { _ in
@@ -19,13 +20,13 @@ final class MovieAssembly: Assembly {
             return MovieDetailViewModel()
         }
         container.register(MovieListViewModel.self) { _ in
-            return MovieListViewModel(service: Service())
+            return MovieListViewModel(service: GetMoviesService())
         }
         container.register(MovieListViewController.self) { _ in
           return MovieListViewController()
         }
-        container.register(Service.self) { _ in
-            return Service()
+        container.register(GetMoviesService.self) { _ in
+            return GetMoviesService()
         }
     }
 

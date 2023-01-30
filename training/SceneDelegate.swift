@@ -13,11 +13,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
+            guard let viewController = ViewControllerProvider.movieListViewController else { return }
 
             let window = UIWindow(windowScene: windowScene)
             let navController = UINavigationController()
-            guard let viewController = ViewControllerProvider.movieListViewController else { return }
-            navController.title = "Popular Movies"
             navController.viewControllers = [viewController]
             window.rootViewController = navController
             self.window = window

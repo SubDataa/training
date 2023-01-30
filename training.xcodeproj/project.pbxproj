@@ -10,6 +10,7 @@
 		630EBFBD29814311002DDF22 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630EBFBB29814311002DDF22 /* MovieListViewController.swift */; };
 		630EBFBE29814311002DDF22 /* MovieListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 630EBFBC29814311002DDF22 /* MovieListViewController.xib */; };
 		633E3C2C298817E900A37523 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E3C2B298817E900A37523 /* Constants.swift */; };
+		633E3C2E2988285200A37523 /* DataMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 633E3C2D2988285200A37523 /* DataMock.json */; };
 		6341E63629812E63005D4E36 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341E63429812E63005D4E36 /* MovieDetailViewController.swift */; };
 		6341E63729812E63005D4E36 /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6341E63529812E63005D4E36 /* MovieDetailViewController.xib */; };
 		63451AB8298801CC002D54C9 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63451AB7298801CC002D54C9 /* AppConfiguration.swift */; };
@@ -51,6 +52,7 @@
 		630EBFBB29814311002DDF22 /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		630EBFBC29814311002DDF22 /* MovieListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieListViewController.xib; sourceTree = "<group>"; };
 		633E3C2B298817E900A37523 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		633E3C2D2988285200A37523 /* DataMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DataMock.json; sourceTree = "<group>"; };
 		6341E63429812E63005D4E36 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		6341E63529812E63005D4E36 /* MovieDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
 		63451AB7298801CC002D54C9 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				6398AE5A2983C4B00033514F /* ViewControllerProvider.swift */,
 				63451AB7298801CC002D54C9 /* AppConfiguration.swift */,
 				63CBE3AE2987B5DB0012F15A /* Assembly.swift */,
+				633E3C2D2988285200A37523 /* DataMock.json */,
 			);
 			path = training;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				6341E63729812E63005D4E36 /* MovieDetailViewController.xib in Resources */,
 				630EBFBE29814311002DDF22 /* MovieListViewController.xib in Resources */,
 				63C60FE52981813B00FC011E /* Localizable.strings in Resources */,
+				633E3C2E2988285200A37523 /* DataMock.json in Resources */,
 				63FC0AEA297ECCCD00DE78BA /* Assets.xcassets in Resources */,
 				63FC0B22297EEBC300DE78BA /* MoviesTableViewCell.xib in Resources */,
 			);
