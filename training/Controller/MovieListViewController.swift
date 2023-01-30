@@ -21,7 +21,7 @@ final class MovieListViewController: UIViewController {
         super.viewDidLoad()
 
         navigationItem.title = NSLocalizedString("NavTitle", comment: "Title Navigation bar")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Mock", style: .plain, target: viewModel, action: #selector(viewModel.touchButton))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Mock", style: .plain, target: self, action: #selector(touchButton))
         tableView.register(UINib.init(nibName: nameNib, bundle: nil), forCellReuseIdentifier: identifier)
         tableView.dataSource = self
         tableView.delegate = self
@@ -33,7 +33,11 @@ final class MovieListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        viewModel.getMovie()
+        viewModel.getMovies()
+    }
+
+    @objc func touchButton() {
+        viewModel.appConfigSelector()
     }
 }
 
