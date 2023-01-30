@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		630EBFBD29814311002DDF22 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630EBFBB29814311002DDF22 /* MovieListViewController.swift */; };
 		630EBFBE29814311002DDF22 /* MovieListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 630EBFBC29814311002DDF22 /* MovieListViewController.xib */; };
-		632B700529802B0A00A838EB /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 632B700429802B0A00A838EB /* swiftlint.yml */; };
+		633E3C2C298817E900A37523 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E3C2B298817E900A37523 /* Constants.swift */; };
 		6341E63629812E63005D4E36 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341E63429812E63005D4E36 /* MovieDetailViewController.swift */; };
 		6341E63729812E63005D4E36 /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6341E63529812E63005D4E36 /* MovieDetailViewController.xib */; };
 		63451AB8298801CC002D54C9 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63451AB7298801CC002D54C9 /* AppConfiguration.swift */; };
@@ -50,7 +50,7 @@
 /* Begin PBXFileReference section */
 		630EBFBB29814311002DDF22 /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		630EBFBC29814311002DDF22 /* MovieListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieListViewController.xib; sourceTree = "<group>"; };
-		632B700429802B0A00A838EB /* swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = swiftlint.yml; path = ../../swiftlint.yml; sourceTree = "<group>"; };
+		633E3C2B298817E900A37523 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6341E63429812E63005D4E36 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		6341E63529812E63005D4E36 /* MovieDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
 		63451AB7298801CC002D54C9 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
@@ -138,7 +138,6 @@
 				63FC0AE2297ECCCB00DE78BA /* SceneDelegate.swift */,
 				63FC0AE9297ECCCD00DE78BA /* Assets.xcassets */,
 				63FC0AEE297ECCCD00DE78BA /* Info.plist */,
-				632B700429802B0A00A838EB /* swiftlint.yml */,
 				63C60FE42981813B00FC011E /* Localizable.strings */,
 				6398AE5A2983C4B00033514F /* ViewControllerProvider.swift */,
 				63451AB7298801CC002D54C9 /* AppConfiguration.swift */,
@@ -152,6 +151,7 @@
 			children = (
 				63FC0B13297ECE0500DE78BA /* Service.swift */,
 				63FC0B1A297EDFF200DE78BA /* Movies.swift */,
+				633E3C2B298817E900A37523 /* Constants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -294,7 +294,6 @@
 				6341E63729812E63005D4E36 /* MovieDetailViewController.xib in Resources */,
 				630EBFBE29814311002DDF22 /* MovieListViewController.xib in Resources */,
 				63C60FE52981813B00FC011E /* Localizable.strings in Resources */,
-				632B700529802B0A00A838EB /* swiftlint.yml in Resources */,
 				63FC0AEA297ECCCD00DE78BA /* Assets.xcassets in Resources */,
 				63FC0B22297EEBC300DE78BA /* MoviesTableViewCell.xib in Resources */,
 			);
@@ -349,6 +348,7 @@
 				63FC0B14297ECE0500DE78BA /* Service.swift in Sources */,
 				63FC0B1B297EDFF200DE78BA /* Movies.swift in Sources */,
 				63FC0AE1297ECCCB00DE78BA /* AppDelegate.swift in Sources */,
+				633E3C2C298817E900A37523 /* Constants.swift in Sources */,
 				63BAB14C2982C66700EEE949 /* MovieDetailViewModel.swift in Sources */,
 				63FC0AE3297ECCCB00DE78BA /* SceneDelegate.swift in Sources */,
 				63C60FE32981782C00FC011E /* MovieListViewModel.swift in Sources */,

@@ -16,22 +16,13 @@ final class MovieDetailViewController: UIViewController {
     @IBOutlet private weak var backdropImage: UIImageView!
     @IBOutlet private weak var releaseDateLabel: UILabel!
 
-    var selectedMovie: MoviesResult?
+    var selectedMovie: MovieResult?
     var viewModel: MovieDetailViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
-        if let selectedMovie = selectedMovie {
-            let posterURL = viewModel.getURLImage(imgPath: selectedMovie.posterPath)
-            posterImage.sd_setImage(with: URL(string: posterURL), placeholderImage: UIImage(named: "placeholder.png"))
-            let backdropURL = viewModel.getURLImage(imgPath: selectedMovie.backdropPath)
-            backdropImage.sd_setImage(with: URL(string: backdropURL), placeholderImage: UIImage(named: "placeholder.png"))
-            titleLabel.text = selectedMovie.title
-            overviewLabel.text = selectedMovie.overview
-            releaseDateLabel.text = selectedMovie.releaseDate
-        }
     }
 
     private func setupUI() {
@@ -46,5 +37,14 @@ final class MovieDetailViewController: UIViewController {
         releaseDateLabel.layer.shadowColor = UIColor.black.cgColor
         releaseDateLabel.layer.shadowRadius = 60
         overviewLabel.numberOfLines = 0
+        if let selectedMovie = selectedMovie {
+            let posterURL = viewModel.getURLImage(imgPath: selectedMovie.posterPath)
+            posterImage.sd_setImage(with: URL(string: posterURL), placeholderImage: UIImage(named: "placeholder.png"))
+            let backdropURL = viewModel.getURLImage(imgPath: selectedMovie.backdropPath)
+            backdropImage.sd_setImage(with: URL(string: backdropURL), placeholderImage: UIImage(named: "placeholder.png"))
+            titleLabel.text = selectedMovie.title
+            overviewLabel.text = selectedMovie.overview
+            releaseDateLabel.text = selectedMovie.releaseDate
+        }
     }
 }

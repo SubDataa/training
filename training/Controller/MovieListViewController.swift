@@ -14,7 +14,7 @@ final class MovieListViewController: UIViewController {
 
     private let nameNib = "MoviesTableViewCell"
     private let identifier = "MoviesCell"
-    private var selectedMovie: MoviesResult?
+    private var selectedMovie: MovieResult?
     var viewModel: MovieListViewModel!
 
     override func viewDidLoad() {

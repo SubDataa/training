@@ -10,7 +10,7 @@ import Foundation
 final class MovieDetailViewModel {
 
     func getURLImage(imgPath: String) -> String {
-        let imgURL = "https://image.tmdb.org/t/p/w500/" + imgPath
-        return imgURL
+        let fullImgURL = ImageURL.imgURL + imgPath
+        return fullImgURL
     }
 }
