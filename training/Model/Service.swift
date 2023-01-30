@@ -8,22 +8,18 @@
 import Foundation
 import UIKit
 
-class Service {
+protocol NetworkService {
+    func fetchMovies(callback: @escaping (Bool, Movies?) -> Void)
+}
 
-    static var shared = Service()
-    private init () {}
-    var task: URLSessionDataTask?
-    private var session = URLSession(configuration: .default)
-    init(session: URLSession) {
-        self.session = session
-    }
+class Service: NetworkService {
 
     func fetchMovies(callback: @escaping (Bool, Movies?) -> Void) {
         guard let apiUrl = URL(string: "https://api.themoviedb.org/3/trending/movie/day?api_key=edef578eed4cd92a64fa40066ad4020b") else { return }
 
         var request = URLRequest(url: apiUrl)
         request.httpMethod = "GET"
-        task = session.dataTask(with: request) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
                     callback(false, nil)

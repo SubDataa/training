@@ -14,7 +14,8 @@ final class MovieListViewModel {
     var updateUI: (() -> Void)?
 
     func getMovie() {
-        Service.shared.fetchMovies { [weak self] (success, data) in
+
+        service.fetchMovies { [weak self] (success, data) in
             if success {
                 guard let data = data else {return}
 
