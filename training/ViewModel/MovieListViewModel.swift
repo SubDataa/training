@@ -12,11 +12,10 @@ import SDWebImage
 final class MovieListViewModel {
     var movies: [MoviesResult] = []
     var updateUI: (() -> Void)?
-    var buttonTapped: (() -> Void)?
-    var appConfig: AppConfiguration = .webService
-    var service: NetworkService
-    
-    init(service: Service) {
+    private var appConfig: AppConfiguration = .webService
+    private var service: NetworkService
+
+    init(service: NetworkService) {
         self.service = service
     }
 
@@ -33,7 +32,6 @@ final class MovieListViewModel {
     }
 
     func getMovie() {
-
         service.fetchMovies { [weak self] (success, data) in
             if success {
                 guard let data = data else {return}
@@ -43,6 +41,7 @@ final class MovieListViewModel {
             }
         }
     }
+    
     func getURLImage(imgPath: String) -> String {
         let imgURL = "https://image.tmdb.org/t/p/w500/" + imgPath
         return imgURL

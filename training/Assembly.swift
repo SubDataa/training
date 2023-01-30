@@ -8,7 +8,7 @@
 import Foundation
 import Swinject
 
-class MovieAssembly: Assembly {
+final class MovieAssembly: Assembly {
     public init() {}
     func assemble(container: Container) {
 
