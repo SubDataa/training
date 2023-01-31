@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class MovieListViewModel {
+final class MovieListViewModel: ViewModeling {
     var movies: [MovieResult] = []
     var updateUI: (() -> Void)?
     private var appConfig: AppConfiguration = .webService
@@ -19,27 +19,25 @@ final class MovieListViewModel {
 
     func appConfigSelector() {
         switch appConfig {
-            case .webService:
-                appConfig = .mock
-                service = GetMoviesMockService()
-            case .mock:
-                appConfig = .webService
-                service = GetMoviesService()
+        case .webService:
+            appConfig = .mock
+            service = GetMoviesMockService()
+        case .mock:
+            appConfig = .webService
+            service = GetMoviesService()
         }
         getMovies()
     }
 
     func getMovies() {
-
-        service.fetchMovies {  [weak self] (result: Result<Movies, Error>) in
+        service.fetchMovies { [weak self] (result: Result<Movies, Error>) in
             switch result {
-                case .success(let movies):
-                    self?.movies = movies.results
-                    self?.updateUI?()
-                case .failure(let error):
-                    print(error)
+            case .success(let movies):
+                self?.movies = movies.results
+                self?.updateUI?()
+            case .failure(let error):
+                print(error)
             }
-
         }
     }
 

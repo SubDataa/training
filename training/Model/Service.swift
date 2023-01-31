@@ -40,7 +40,7 @@ class GetMoviesMockService: NetworkServicing {
 
     private var data: Data? {
         let bundle = Bundle(for: GetMoviesMockService.self)
-        let url = bundle.url(forResource: "DataMock", withExtension: ".json")!
+        let url = bundle.url(forResource: "GetMoviesMockService", withExtension: ".json")!
         return try? Data(contentsOf: url)
     }
 
