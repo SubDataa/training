@@ -30,13 +30,17 @@ final class MovieListViewModel {
     }
 
     func getMovies() {
-        service.fetchMovies { [weak self] (success, data) in
-            if success {
-                guard let data = data else {return}
 
-                self?.movies = data.results
-                self?.updateUI?()
+        service.fetchMovies {  [weak self] (result: Result<Movies, Error>) in
+
+            switch result {
+                case .success(let movies):
+                    self?.movies = movies.results
+                    self?.updateUI?()
+                case .failure(let error):
+                    print(error)
             }
+
         }
     }
 
