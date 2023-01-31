@@ -32,7 +32,6 @@ final class MovieListViewModel {
     func getMovies() {
 
         service.fetchMovies {  [weak self] (result: Result<Movies, Error>) in
-
             switch result {
                 case .success(let movies):
                     self?.movies = movies.results
