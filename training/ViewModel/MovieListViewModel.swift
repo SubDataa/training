@@ -8,6 +8,7 @@
 import Foundation
 
 final class MovieListViewModel: ViewModeling {
+
     var movies: [MovieResult] = []
     var updateUI: (() -> Void)?
     private var appConfig: AppConfiguration = .webService
