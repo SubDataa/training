@@ -11,6 +11,7 @@ final class MovieDetailViewModel {
 
     func getURLImage(imgPath: String) -> String {
         let fullImgURL = ImageURL.imgURL + imgPath
+
         return fullImgURL
     }
 }

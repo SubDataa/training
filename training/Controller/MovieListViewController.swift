@@ -15,12 +15,13 @@ final class MovieListViewController: UIViewController {
     private let nameNib = "MoviesTableViewCell"
     private let identifier = "MoviesCell"
     private var selectedMovie: MovieResult?
-    private let viewModel = MovieListViewModel()
+    var viewModel: MovieListViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.title = NSLocalizedString("NavTitle", comment: "Title Navigation bar")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Mock", style: .plain, target: self, action: #selector(touchButton))
         tableView.register(UINib.init(nibName: nameNib, bundle: nil), forCellReuseIdentifier: identifier)
         tableView.dataSource = self
         tableView.delegate = self
@@ -32,7 +33,11 @@ final class MovieListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        viewModel.getMovie()
+        viewModel.getMovies()
+    }
+
+    @objc func touchButton() {
+        viewModel.appConfigSelector()
     }
 }
 
@@ -56,9 +61,10 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailVC = ViewControllerProvider.movieDetailViewController else { return }
+
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         selectedMovie = viewModel.movies[indexPath.row]
-        let detailVC = MovieDetailViewController(nibName: "MovieDetailViewController", bundle: nil)
         detailVC.selectedMovie = viewModel.movies[indexPath.row]
         navigationController?.pushViewController(detailVC, animated: true)
     }

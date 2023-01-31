@@ -14,16 +14,6 @@ final class MoviesTableViewCell: UITableViewCell {
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-    }
-
     func configure(model: SetupModel) {
         overviewLabel.text = model.overview
         titleLabel.text = model.title
@@ -31,6 +21,7 @@ final class MoviesTableViewCell: UITableViewCell {
         posterImage.sd_setImage(with: URL(string: poster))
     }
 }
+
 extension MoviesTableViewCell {
     struct SetupModel {
         let title: String

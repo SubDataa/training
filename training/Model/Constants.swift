@@ -1,8 +1,8 @@
 //
-//  Enum.swift
+//  Constants.swift
 //  training
 //
-//  Created by Thibault Ballof on 27/01/2023.
+//  Created by Thibault Ballof on 30/01/2023.
 //
 
 import Foundation

@@ -1,0 +1,60 @@
+# For more infiormation https://github.com/realm/SwiftLint/blob/master/README.md
+# To validate .swiftlint.yml file http://www.yamllint.com
+custom_rules:
+  check_core_importing_view_controller:
+    included: ".*ViewController.swift"
+    excluded: "CO/Epics/DeveloperScreen/"
+    regex: '(import Core$)'
+    name: "Checking Core usage in ViewControllers"
+    message: "Core used in ViewController"
+    severity: error
+  check_use_isFeatureEnabled_view_controller:
+    included: ".*ViewController.swift"
+    excluded: "CO/Epics/DeveloperScreen/"
+    regex: '(viewModel.isFeatureEnabled)'
+    name: "Featuring is forbidden in ViewControllers and must be handled by the ViewModel class"
+    message: "Use of viewModel.isFeatureEnabled"
+    severity: error
+  check_use_isFeatureHidden_from_view_controller:
+    included: ".*ViewController.swift"
+    excluded: "CO/Epics/DeveloperScreen/"
+    regex: '(viewModel.isFeatureHidden)'
+    name: "Featuring is forbidden in ViewControllers and must be handled by the ViewModel class"
+    message: "Use of viewModel.isFeatureHidden"
+    severity: error
+  check_use_featureDisabled_view_controller:
+    included: ".*ViewController.swift"
+    excluded: "CO/Epics/DeveloperScreen/"
+    regex: '(viewModel.isFeatureDisabled)'
+    name: "Featuring is forbidden in ViewControllers and must be handled by the ViewModel class"
+    message: "Use of viewModel.isFeatureDisabled"
+    severity: error
+    
+type_name:
+    min_length: 1
+    max_length:
+        warning: 100
+        error: 120
+    
+function_body_length:
+  - 55 # warning
+  - 100 # error
+opt_in_rules: # rule identifiers to include
+    - overridden_super_call
+    - prohibited_super_call
+disabled_rules: # rule identifiers to exclude from running
+   - class_delegate_protocol
+   - line_length
+   - identifier_name
+   - force_cast
+   - cyclomatic_complexity
+   - function_parameter_count
+   - type_body_length
+   - file_length
+# need to review after 0.48.0 upgrade on bitrise
+   - void_function_in_ternary
+   - superfluous_disable_command
+   - large_tuple
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+   - GeneratorFrameworks
+   - fastlane

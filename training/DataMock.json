@@ -1,0 +1,45 @@
+{
+"results": [
+    {
+        "adult": false,
+        "backdrop_path": "/zGoZB4CboMzY1z4G3nU6BWnMDB2.jpg",
+        "id": 758009,
+        "title": "Shotgun Wedding",
+        "original_language": "en",
+        "original_title": "Shotgun Wedding",
+        "overview": "Darcy and Tom gather their families for the ultimate destination wedding but when the entire party is taken hostage, “’Til Death Do Us Part” takes on a whole new meaning in this hilarious, adrenaline-fueled adventure as Darcy and Tom must save their loved ones—if they don’t kill each other first.",
+        "poster_path": "/t79ozwWnwekO0ADIzsFP1E5SkvR.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            28,
+            10749,
+            35
+        ],
+        "popularity": 312.253,
+        "release_date": "2022-12-28",
+        "video": false,
+        "vote_average": 6.306,
+        "vote_count": 124
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/dlrWhn0G3AtxYUx2D9P2bmzcsvF.jpg",
+        "id": 536554,
+        "title": "M3GAN",
+        "original_language": "en",
+        "original_title": "M3GAN",
+        "overview": "A brilliant toy company roboticist uses artificial intelligence to develop M3GAN, a life-like doll programmed to emotionally bond with her newly orphaned niece. But when the doll's programming works too well, she becomes overprotective of her new friend with terrifying results.",
+        "poster_path": "/d9nBoowhjiiYc4FBNtQkPY7c11H.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            878,
+            27,
+            35
+        ],
+        "popularity": 6177.288,
+        "release_date": "2022-12-28",
+        "video": false,
+        "vote_average": 7.598,
+        "vote_count": 1030
+    }]
+}

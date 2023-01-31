@@ -17,13 +17,12 @@ final class MovieDetailViewController: UIViewController {
     @IBOutlet private weak var releaseDateLabel: UILabel!
 
     var selectedMovie: MovieResult?
-    var viewModel = MovieDetailViewModel()
+    var viewModel: MovieDetailViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
-        fillUI()
     }
 
     private func setupUI() {
@@ -38,9 +37,6 @@ final class MovieDetailViewController: UIViewController {
         releaseDateLabel.layer.shadowColor = UIColor.black.cgColor
         releaseDateLabel.layer.shadowRadius = 60
         overviewLabel.numberOfLines = 0
-    }
-
-    private func fillUI() {
         if let selectedMovie = selectedMovie {
             let posterURL = viewModel.getURLImage(imgPath: selectedMovie.posterPath)
             posterImage.sd_setImage(with: URL(string: posterURL), placeholderImage: UIImage(named: "placeholder.png"))
