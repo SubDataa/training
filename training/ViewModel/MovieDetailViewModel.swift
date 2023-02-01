@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class MovieDetailViewModel {
+final class MovieDetailViewModel: ViewModeling {
 
     func getURLImage(imgPath: String) -> String {
         let fullImgURL = ImageURL.imgURL + imgPath
