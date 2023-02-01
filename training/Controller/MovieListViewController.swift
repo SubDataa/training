@@ -22,7 +22,7 @@ final class MovieListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        inputTableView()
+        bindTableView()
         navigationItem.title = NSLocalizedString("NavTitle", comment: "Title Navigation bar")
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Mock", style: .plain, target: self, action: #selector(touchButton))
         tableView.register(UINib.init(nibName: nameNib, bundle: nil), forCellReuseIdentifier: identifier)
@@ -41,12 +41,12 @@ final class MovieListViewController: UIViewController {
         viewModel.appConfigSelector()
     }
 
-    func inputTableView() {
+    func bindTableView() {
         tableView
             .rx.setDelegate(self)
             .disposed(by: disposeBag)
 
-        viewModel.rxMovie.bind(to: tableView.rx.items(cellIdentifier: identifier, cellType: MoviesTableViewCell.self)) { _, model, cell in
+        viewModel.movies.bind(to: tableView.rx.items(cellIdentifier: identifier, cellType: MoviesTableViewCell.self)) { _, model, cell in
             let posterImgURL = self.viewModel.getURLImage(imgPath: model.posterPath)
             cell.configure(model: MoviesTableViewCell.SetupModel(title: model.title, overview: model.overview, imageURL: posterImgURL))
         }.disposed(by: disposeBag)
@@ -55,54 +55,19 @@ final class MovieListViewController: UIViewController {
 
 extension MovieListViewController: UITableViewDelegate {
 
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return viewModel.movies.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? MoviesTableViewCell else { return UITableViewCell() }
-//
-//        let posterImgURL = viewModel.getURLImage(imgPath: viewModel.movies[indexPath.row].posterPath)
-//        cell.configure(model: MoviesTableViewCell.SetupModel(title: viewModel.movies[indexPath.row].title, overview: viewModel.movies[indexPath.row].overview, imageURL: posterImgURL))
-//
-//        return cell
-//    }
-
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 187
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//Observable
-//            .zip(
-//        tableView.rx.itemSelected
-//        ,tableView.rx.modelSelected(MovieResult.Self))
-//                            .subscribe(onNext: { [weak self] indexPath, model in
-//                                guard let self = self else { return }
-//                                self.selectedMovie = self.model[indexPath.row]
-//                                self.performSegue(withIdentifier: "ItemDetail", sender: self)
-//                            }).disposed(by: disposeBag)
-//
+        guard let detailVC = ViewControllerProvider.movieDetailViewController else { return }
 
-
-        //        Observable
-        //                  .zip(
-        //                      tableView
-        //                          .rx
-        //                          .itemSelected
-        //                        ,tableView
-        //                        .rx
-        //                        .modelSelected(MovieResult.self)
-        //                  )
-        //                  .bind{ [unowned self] indexPath, model in
-        //                      guard let detailVC = ViewControllerProvider.movieDetailViewController else { return }
-        //                             tableView.deselectRow(at: indexPath as IndexPath, animated: true)
-        //                             selectedMovie = model[indexPath.row]
-        //                             detailVC.selectedMovie = model[indexPath.row]
-        //                             navigationController?.pushViewController(detailVC, animated: true)
-        //                  }
-        //                  .disposed(by: disposeBag)
-        //          }
+        tableView.rx.modelSelected(Movie.self)
+                  .subscribe(onNext: { [weak self] model in
+                      guard let self = self else { return }
+                      self.selectedMovie = model
+                      detailVC.selectedMovie = self.selectedMovie
+                      self.navigationController?.pushViewController(detailVC, animated: true)
+                  }).disposed(by: disposeBag)
     }
 }
-
