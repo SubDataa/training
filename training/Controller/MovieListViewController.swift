@@ -16,7 +16,7 @@ final class MovieListViewController: UIViewController {
 
     private let nameNib = "MoviesTableViewCell"
     private let identifier = "MoviesCell"
-    private var selectedMovie: MovieResult?
+    private var selectedMovie: Movie?
     var viewModel: MovieListViewModel!
     var disposeBag = DisposeBag()
 

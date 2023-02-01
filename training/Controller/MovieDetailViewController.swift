@@ -8,7 +8,6 @@
 import UIKit
 import SDWebImage
 
-
 final class MovieDetailViewController: UIViewController {
 
     @IBOutlet private weak var overviewLabel: UILabel!
@@ -17,8 +16,7 @@ final class MovieDetailViewController: UIViewController {
     @IBOutlet private weak var backdropImage: UIImageView!
     @IBOutlet private weak var releaseDateLabel: UILabel!
 
-    
-    var selectedMovie: MovieResult?
+    var selectedMovie: Movie?
     var viewModel: MovieDetailViewModel!
 
     override func viewDidLoad() {
