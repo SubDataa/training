@@ -36,7 +36,9 @@ final class MovieListViewModel: ViewModeling {
 
     func getMovies() {
         service.fetchMovies(type: MoviesResults.self).subscribe { [weak self] response in
-            self?.movies.accept(response.results)
+            DispatchQueue.main.async {
+                self?.movies.accept(response.results)
+            }
         }.disposed(by: disposeBag)
     }
 

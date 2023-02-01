@@ -22,7 +22,6 @@ class GetMoviesService: NetworkServicing {
             var request = URLRequest(url: apiUrl)
             request.httpMethod = "GET"
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-               // DispatchQueue.main.async {
                     guard let response = response as? HTTPURLResponse, 200..<300 ~= response.statusCode else { return }
                     guard let data = data else { return }
 
@@ -32,7 +31,6 @@ class GetMoviesService: NetworkServicing {
                     } catch let error {
                         observer.onError(error)
                     }
-               // }
             }
             task.resume()
             return Disposables.create {
