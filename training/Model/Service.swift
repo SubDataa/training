@@ -61,7 +61,6 @@ class GetMoviesMockService: NetworkServicing {
                     observer.onError(error)
                 }
             }
-
             return Disposables.create {
                 fetchTask.cancel()
             }
