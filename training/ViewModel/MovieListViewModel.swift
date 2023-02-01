@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import RxSwift
+import RxRelay
 
 final class MovieListViewModel: ViewModeling {
 
+    var rxMovie: BehaviorRelay<[MovieResult]> = BehaviorRelay(value: [])
     var movies: [MovieResult] = []
     var updateUI: (() -> Void)?
     private var appConfig: AppConfiguration = .webService
@@ -34,7 +37,7 @@ final class MovieListViewModel: ViewModeling {
         service.fetchMovies { [weak self] (result: Result<Movies, Error>) in
             switch result {
             case .success(let movies):
-                self?.movies = movies.results
+                self?.rxMovie.accept(movies.results)
                 self?.updateUI?()
             case .failure(let error):
                 print(error)
