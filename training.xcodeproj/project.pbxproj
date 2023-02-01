@@ -14,7 +14,7 @@
 		6341E63629812E63005D4E36 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341E63429812E63005D4E36 /* MovieDetailViewController.swift */; };
 		6341E63729812E63005D4E36 /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6341E63529812E63005D4E36 /* MovieDetailViewController.xib */; };
 		63451AB8298801CC002D54C9 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63451AB7298801CC002D54C9 /* AppConfiguration.swift */; };
-		634BD4322989175900BA4FE1 /* emptyjson.json in Resources */ = {isa = PBXBuildFile; fileRef = 634BD4312989175900BA4FE1 /* emptyjson.json */; };
+		634BD4322989175900BA4FE1 /* GetMoviesEmptyMockService.json in Resources */ = {isa = PBXBuildFile; fileRef = 634BD4312989175900BA4FE1 /* GetMoviesEmptyMockService.json */; };
 		634BD43429891FD700BA4FE1 /* ViewModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BD43329891FD700BA4FE1 /* ViewModeling.swift */; };
 		638BFFD62989610C00E096AA /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 638BFFD52989610C00E096AA /* RxSwift */; };
 		638BFFDF29896AD500E096AA /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 638BFFDE29896AD500E096AA /* RxCocoa */; };
@@ -60,7 +60,7 @@
 		6341E63429812E63005D4E36 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		6341E63529812E63005D4E36 /* MovieDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
 		63451AB7298801CC002D54C9 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
-		634BD4312989175900BA4FE1 /* emptyjson.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = emptyjson.json; sourceTree = "<group>"; };
+		634BD4312989175900BA4FE1 /* GetMoviesEmptyMockService.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetMoviesEmptyMockService.json; sourceTree = "<group>"; };
 		634BD43329891FD700BA4FE1 /* ViewModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModeling.swift; sourceTree = "<group>"; };
 		6398AE5A2983C4B00033514F /* ViewControllerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProvider.swift; sourceTree = "<group>"; };
 		63BAB14B2982C66700EEE949 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 				63451AB7298801CC002D54C9 /* AppConfiguration.swift */,
 				63CBE3AE2987B5DB0012F15A /* Assembly.swift */,
 				633E3C2D2988285200A37523 /* GetMoviesMockService.json */,
-				634BD4312989175900BA4FE1 /* emptyjson.json */,
+				634BD4312989175900BA4FE1 /* GetMoviesEmptyMockService.json */,
 			);
 			path = training;
 			sourceTree = "<group>";
@@ -321,7 +321,7 @@
 				633E3C2E2988285200A37523 /* GetMoviesMockService.json in Resources */,
 				63FC0AEA297ECCCD00DE78BA /* Assets.xcassets in Resources */,
 				63FC0B22297EEBC300DE78BA /* MoviesTableViewCell.xib in Resources */,
-				634BD4322989175900BA4FE1 /* emptyjson.json in Resources */,
+				634BD4322989175900BA4FE1 /* GetMoviesEmptyMockService.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
