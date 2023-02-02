@@ -7,6 +7,8 @@
 
 import UIKit
 import SDWebImage
+import RxSwift
+import RxCocoa
 
 final class MovieListViewController: UIViewController {
 
@@ -14,17 +16,16 @@ final class MovieListViewController: UIViewController {
 
     private let nameNib = "MoviesTableViewCell"
     private let identifier = "MoviesCell"
-    private var selectedMovie: MovieResult?
+    private var selectedMovie: Movie?
     var viewModel: MovieListViewModel!
+    var disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        bindTableView()
         navigationItem.title = NSLocalizedString("NavTitle", comment: "Title Navigation bar")
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Mock", style: .plain, target: self, action: #selector(touchButton))
         tableView.register(UINib.init(nibName: nameNib, bundle: nil), forCellReuseIdentifier: identifier)
-        tableView.dataSource = self
-        tableView.delegate = self
         viewModel.updateUI = { [weak self] in
             self?.tableView.reloadData()
         }
@@ -39,22 +40,20 @@ final class MovieListViewController: UIViewController {
     @objc func touchButton() {
         viewModel.appConfigSelector()
     }
+
+    func bindTableView() {
+        tableView
+            .rx.setDelegate(self)
+            .disposed(by: disposeBag)
+
+        viewModel.movies.bind(to: tableView.rx.items(cellIdentifier: identifier, cellType: MoviesTableViewCell.self)) { _, model, cell in
+            let posterImgURL = self.viewModel.getURLImage(imgPath: model.posterPath)
+            cell.configure(model: MoviesTableViewCell.SetupModel(title: model.title, overview: model.overview, imageURL: posterImgURL))
+        }.disposed(by: disposeBag)
+    }
 }
 
-extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.movies.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? MoviesTableViewCell else { return UITableViewCell() }
-
-        let posterImgURL = viewModel.getURLImage(imgPath: viewModel.movies[indexPath.row].posterPath)
-        cell.configure(model: MoviesTableViewCell.SetupModel(title: viewModel.movies[indexPath.row].title, overview: viewModel.movies[indexPath.row].overview, imageURL: posterImgURL))
-
-        return cell
-    }
+extension MovieListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 187
@@ -63,9 +62,12 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let detailVC = ViewControllerProvider.movieDetailViewController else { return }
 
-        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
-        selectedMovie = viewModel.movies[indexPath.row]
-        detailVC.selectedMovie = viewModel.movies[indexPath.row]
+        tableView.rx.modelSelected(Movie.self)
+            .subscribe(onNext: { [weak self] model in
+                guard let strongSelf = self else { return }
+                strongSelf.selectedMovie = model
+                detailVC.selectedMovie = strongSelf.selectedMovie
+            }).disposed(by: disposeBag)
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }

@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import RxSwift
+import RxRelay
 
 final class MovieListViewModel: ViewModeling {
 
-    var movies: [MovieResult] = []
+    var movies: BehaviorRelay<[Movie]> = BehaviorRelay(value: [])
+
+    var disposeBag = DisposeBag()
     var updateUI: (() -> Void)?
     private var appConfig: AppConfiguration = .webService
     private var service: NetworkServicing
@@ -31,15 +35,11 @@ final class MovieListViewModel: ViewModeling {
     }
 
     func getMovies() {
-        service.fetchMovies { [weak self] (result: Result<Movies, Error>) in
-            switch result {
-            case .success(let movies):
-                self?.movies = movies.results
-                self?.updateUI?()
-            case .failure(let error):
-                print(error)
+        service.fetchMovies(type: MoviesResults.self).subscribe { [weak self] response in
+            DispatchQueue.main.async {
+                self?.movies.accept(response.results)
             }
-        }
+        }.disposed(by: disposeBag)
     }
 
     func getURLImage(imgPath: String) -> String {
@@ -47,4 +47,5 @@ final class MovieListViewModel: ViewModeling {
 
         return fullImgURL
     }
+
 }
