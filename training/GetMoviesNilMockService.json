@@ -1,0 +1,26 @@
+
+{
+"results": [
+    {
+        "adult": false,
+        "backdrop_path": "/zGoZB4CboMzY1z4G3nU6BWnMDB2.jpg",
+        "id": 758009,
+        "title": ,
+        "original_language": "en",
+        "original_title": ,
+        "overview": "Darcy and Tom gather their families for the ultimate destination wedding but when the entire party is taken hostage, “’Til Death Do Us Part” takes on a whole new meaning in this hilarious, adrenaline-fueled adventure as Darcy and Tom must save their loved ones—if they don’t kill each other first.",
+        "poster_path": "/t79ozwWnwekO0ADIzsFP1E5SkvR.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            28,
+            10749,
+            35
+        ],
+        "popularity": 312.253,
+        "release_date": "2022-12-28",
+        "video": false,
+        "vote_average": 6.306,
+        "vote_count": 124
+    }]
+
+}

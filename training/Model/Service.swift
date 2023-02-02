@@ -42,22 +42,49 @@ class GetMoviesService: NetworkServicing {
 }
 
 class GetMoviesMockService: NetworkServicing {
+    var dataMock: DataMock = .goodData
 
-    private var data: Data? {
-        let bundle = Bundle(for: GetMoviesMockService.self)
-        let url = bundle.url(forResource: "GetMoviesMockService", withExtension: ".json")!
-        return try? Data(contentsOf: url)
+    func selectedDataMock() -> Data? {
+        var data: Data?
+        switch dataMock {
+        case .badData:
+            var dataMocked: Data? {
+               let bundle = Bundle(for: GetMoviesMockService.self)
+               let url = bundle.url(forResource: "GetMoviesEmptyMockService", withExtension: ".json")!
+               return try? Data(contentsOf: url)
+           }
+            data = dataMocked
+        case .goodData:
+            var dataMocked: Data? {
+               let bundle = Bundle(for: GetMoviesMockService.self)
+               let url = bundle.url(forResource: "GetMoviesMockService", withExtension: ".json")!
+               return try? Data(contentsOf: url)
+
+           }
+            data = dataMocked
+        case .badDataWithNilValue:
+            var dataMocked: Data? {
+               let bundle = Bundle(for: GetMoviesMockService.self)
+               let url = bundle.url(forResource: "GetMoviesNilMockService", withExtension: ".json")!
+               return try? Data(contentsOf: url)
+
+           }
+            data = dataMocked
+        }
+        return data
     }
 
     func fetchMovies<T: Decodable>(type: T.Type) -> Observable<T> {
+        let selectedData = selectedDataMock()
         return Observable<T>.create { observer in
             let fetchTask = Task {
-                guard let data = self.data else { return }
+                guard let selectedData = selectedData else { return }
 
                 do {
-                    let result = try JSONDecoder().decode(type.self, from: data)
+                    let result = try JSONDecoder().decode(type.self, from: selectedData)
                     observer.onNext(result)
                 } catch let error {
+                    print(error)
                     observer.onError(error)
                 }
             }
