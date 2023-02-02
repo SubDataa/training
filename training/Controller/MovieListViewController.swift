@@ -64,9 +64,9 @@ extension MovieListViewController: UITableViewDelegate {
 
         tableView.rx.modelSelected(Movie.self)
             .subscribe(onNext: { [weak self] model in
-                guard let self = self else { return }
-                self.selectedMovie = model
-                detailVC.selectedMovie = self.selectedMovie
+                guard let strongSelf = self else { return }
+                strongSelf.selectedMovie = model
+                detailVC.selectedMovie = strongSelf.selectedMovie
             }).disposed(by: disposeBag)
         navigationController?.pushViewController(detailVC, animated: true)
     }
