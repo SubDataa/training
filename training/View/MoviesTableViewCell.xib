@@ -53,6 +53,7 @@
                     <constraint firstItem="kn9-Z6-dpR" firstAttribute="leading" secondItem="ESv-ls-dGL" secondAttribute="trailing" constant="6" id="ozy-u7-SV1"/>
                     <constraint firstAttribute="trailing" secondItem="kn9-Z6-dpR" secondAttribute="trailing" constant="64.5" id="pen-xk-F4x"/>
                     <constraint firstItem="ESv-ls-dGL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="tww-FZ-Q8x"/>
+                    <constraint firstAttribute="trailing" secondItem="kn9-Z6-dpR" secondAttribute="trailing" constant="64.670000000000002" id="wP8-9b-jNr"/>
                 </constraints>
                 <variation key="heightClass=regular-widthClass=regular">
                     <mask key="constraints">

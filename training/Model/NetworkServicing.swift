@@ -23,7 +23,7 @@ class GetMoviesService: NetworkServicing {
             request.httpMethod = "GET"
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                     guard let response = response as? HTTPURLResponse, 200..<300 ~= response.statusCode, let data = data else { return }
-
+                
                     do {
                         let result = try JSONDecoder().decode(type.self, from: data)
                         observer.onNext(result)
@@ -89,7 +89,6 @@ class GetMoviesMockService: NetworkServicing {
                     observer.onError(error)
                 }
             }
-
             return Disposables.create {
                 fetchTask.cancel()
             }
