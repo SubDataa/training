@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieListViewController" customModule="training" customModuleProvider="target">
             <connections>
+                <outlet property="searchBar" destination="MQc-Vh-hXv" id="cX7-Mo-A53"/>
+                <outlet property="searchTableView" destination="Nvx-mS-YQD" id="8tc-el-rpX"/>
                 <outlet property="tableView" destination="T80-FM-Vhr" id="Ap1-SF-Msl"/>
                 <outlet property="view" destination="18L-ci-2Zs" id="GBy-Lf-FQz"/>
             </connections>
@@ -19,17 +21,30 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <searchBar contentMode="redraw" id="MQc-Vh-hXv">
+                    <rect key="frame" x="0.0" y="91" width="393" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="T80-FM-Vhr">
-                    <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                    <rect key="frame" x="0.0" y="154" width="393" height="698"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Nvx-mS-YQD">
+                    <rect key="frame" x="0.0" y="135" width="393" height="717"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Koi-Qd-K82"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="Nvx-mS-YQD" firstAttribute="trailing" secondItem="T80-FM-Vhr" secondAttribute="trailing" id="17y-YM-zhS"/>
+                <constraint firstItem="T80-FM-Vhr" firstAttribute="top" secondItem="MQc-Vh-hXv" secondAttribute="bottom" constant="19" id="3yB-rd-kMa"/>
+                <constraint firstItem="Nvx-mS-YQD" firstAttribute="leading" secondItem="T80-FM-Vhr" secondAttribute="leading" id="ScG-v0-dcP"/>
                 <constraint firstAttribute="bottom" secondItem="T80-FM-Vhr" secondAttribute="bottom" id="XNs-Zc-ovd"/>
-                <constraint firstItem="T80-FM-Vhr" firstAttribute="top" secondItem="Koi-Qd-K82" secondAttribute="top" id="b6p-5M-PeZ"/>
+                <constraint firstItem="Nvx-mS-YQD" firstAttribute="top" secondItem="MQc-Vh-hXv" secondAttribute="bottom" id="a8Z-QK-ZOm"/>
                 <constraint firstItem="T80-FM-Vhr" firstAttribute="trailing" secondItem="Koi-Qd-K82" secondAttribute="trailing" id="gGW-jK-SVN"/>
+                <constraint firstItem="Nvx-mS-YQD" firstAttribute="bottom" secondItem="T80-FM-Vhr" secondAttribute="bottom" id="nvp-s5-0oO"/>
                 <constraint firstItem="T80-FM-Vhr" firstAttribute="leading" secondItem="Koi-Qd-K82" secondAttribute="leading" id="y1c-fK-e5l"/>
             </constraints>
             <point key="canvasLocation" x="-411.4503816793893" y="-442.25352112676057"/>
