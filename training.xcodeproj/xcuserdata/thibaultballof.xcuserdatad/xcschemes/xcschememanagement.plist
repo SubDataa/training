@@ -130,14 +130,24 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>TrainingTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 		<key>training.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>13</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>63D0CB46298BB0E900B5DE53</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>63FC0ADC297ECCCB00DE78BA</key>
 		<dict>
 			<key>primary</key>
