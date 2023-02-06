@@ -32,8 +32,8 @@
 		63FC0AE3297ECCCB00DE78BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC0AE2297ECCCB00DE78BA /* SceneDelegate.swift */; };
 		63FC0AEA297ECCCD00DE78BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63FC0AE9297ECCCD00DE78BA /* Assets.xcassets */; };
 		63FC0AED297ECCCD00DE78BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63FC0AEB297ECCCD00DE78BA /* LaunchScreen.storyboard */; };
-		63FC0B14297ECE0500DE78BA /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC0B13297ECE0500DE78BA /* Service.swift */; };
-		63FC0B1B297EDFF200DE78BA /* MoviesResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC0B1A297EDFF200DE78BA /* MoviesResults.swift */; };
+		63FC0B14297ECE0500DE78BA /* NetworkServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC0B13297ECE0500DE78BA /* NetworkServicing.swift */; };
+		63FC0B1B297EDFF200DE78BA /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC0B1A297EDFF200DE78BA /* Movies.swift */; };
 		63FC0B1E297EE54900DE78BA /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 63FC0B1D297EE54900DE78BA /* SDWebImage */; };
 		63FC0B21297EEBC300DE78BA /* MoviesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC0B1F297EEBC300DE78BA /* MoviesTableViewCell.swift */; };
 		63FC0B22297EEBC300DE78BA /* MoviesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FC0B20297EEBC300DE78BA /* MoviesTableViewCell.xib */; };
@@ -82,8 +82,8 @@
 		63FC0AEC297ECCCD00DE78BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63FC0AEE297ECCCD00DE78BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63FC0AFD297ECCCD00DE78BA /* trainingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = trainingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		63FC0B13297ECE0500DE78BA /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		63FC0B1A297EDFF200DE78BA /* MoviesResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesResults.swift; sourceTree = "<group>"; };
+		63FC0B13297ECE0500DE78BA /* NetworkServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicing.swift; sourceTree = "<group>"; };
+		63FC0B1A297EDFF200DE78BA /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
 		63FC0B1F297EEBC300DE78BA /* MoviesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTableViewCell.swift; sourceTree = "<group>"; };
 		63FC0B20297EEBC300DE78BA /* MoviesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesTableViewCell.xib; sourceTree = "<group>"; };
 		76031BAF0377AD39240D2B18 /* Pods-TrainingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainingTests.debug.xcconfig"; path = "Target Support Files/Pods-TrainingTests/Pods-TrainingTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -208,8 +208,8 @@
 		63FC0B10297ECD1200DE78BA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				63FC0B13297ECE0500DE78BA /* Service.swift */,
-				63FC0B1A297EDFF200DE78BA /* MoviesResults.swift */,
+				63FC0B13297ECE0500DE78BA /* NetworkServicing.swift */,
+				63FC0B1A297EDFF200DE78BA /* Movies.swift */,
 				633E3C2B298817E900A37523 /* Constants.swift */,
 			);
 			path = Model;
@@ -502,8 +502,8 @@
 				63451AB8298801CC002D54C9 /* AppConfiguration.swift in Sources */,
 				63CBE3AF2987B5DB0012F15A /* Assembly.swift in Sources */,
 				630EBFBD29814311002DDF22 /* MovieListViewController.swift in Sources */,
-				63FC0B14297ECE0500DE78BA /* Service.swift in Sources */,
-				63FC0B1B297EDFF200DE78BA /* MoviesResults.swift in Sources */,
+				63FC0B14297ECE0500DE78BA /* NetworkServicing.swift in Sources */,
+				63FC0B1B297EDFF200DE78BA /* Movies.swift in Sources */,
 				63FC0AE1297ECCCB00DE78BA /* AppDelegate.swift in Sources */,
 				633E3C2C298817E900A37523 /* Constants.swift in Sources */,
 				63BAB14C2982C66700EEE949 /* MovieDetailViewModel.swift in Sources */,
