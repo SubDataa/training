@@ -101,6 +101,17 @@ final class MovieListViewController: UIViewController {
         tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
     }
+    private func switchTableViewDidSelectRowAt(_ selectedtableView: UITableView, viewController: UIViewController) {
+        selectedtableView
+            .rx.modelSelected(Movie.self)
+            .subscribe(onNext: { [weak self] model in
+                guard let strongSelf = self else { return }
+
+                strongSelf.selectedMovie = model
+                viewController.selectedMovie = strongSelf.selectedMovie
+            }).disposed(by: disposeBag)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 extension MovieListViewController: UITableViewDelegate {
