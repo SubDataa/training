@@ -63,4 +63,3 @@ final class TrainingTests: XCTestCase {
         wait(for: [expectation], timeout: 10)
     }
 }
-
