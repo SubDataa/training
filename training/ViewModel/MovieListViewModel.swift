@@ -11,15 +11,21 @@ import RxRelay
 
 final class MovieListViewModel: ViewModeling {
 
-    var movies: BehaviorRelay<[Movie]> = BehaviorRelay(value: [])
-
-    var disposeBag = DisposeBag()
+    let moviesRelay: BehaviorRelay<[Movie]> = BehaviorRelay(value: [])
+    private var filteredMovies: [Movie] = []
+    let filteredMoviesRelay = BehaviorRelay<[Movie]>(value: [])
+    private var disposeBag = DisposeBag()
     var updateUI: (() -> Void)?
     private var appConfig: AppConfiguration = .webService
     private var service: NetworkServicing
 
     init(service: NetworkServicing) {
         self.service = service
+    }
+
+    func search(text: String) {
+        filteredMovies = moviesRelay.value.filter { $0.title.contains(text) }
+        filteredMoviesRelay.accept(filteredMovies)
     }
 
     func appConfigSelector() {
@@ -37,7 +43,7 @@ final class MovieListViewModel: ViewModeling {
     func getMovies() {
         service.fetchMovies(type: MoviesResults.self).subscribe { [weak self] response in
             DispatchQueue.main.async {
-                self?.movies.accept(response.results)
+                self?.moviesRelay.accept(response.results)
             }
         }.disposed(by: disposeBag)
     }
