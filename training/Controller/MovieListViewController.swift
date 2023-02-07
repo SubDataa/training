@@ -31,8 +31,8 @@ final class MovieListViewController: UIViewController {
         bindTableViews()
         bindSearchField()
         switchBetweenTableViews()
-        navigationItem.title = NSLocalizedString("NavTitle", comment: "Title Navigation bar")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Mock", style: .plain, target: self, action: #selector(touchButton))
+        navigationItem.title = NSLocalizedString(L10n.navTitle, comment: "Title Navigation bar")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: L10n.mock, style: .plain, target: self, action: #selector(touchButton))
         tableView.register(UINib.init(nibName: nameNib, bundle: nil), forCellReuseIdentifier: identifier)
         searchTableView.register(UINib.init(nibName: nameNib, bundle: nil), forCellReuseIdentifier: identifier)
         viewModel.updateUI = { [weak self] in
