@@ -14,3 +14,7 @@ enum ImageURL {
 enum DataMock {
     case badData, goodData, badDataWithNilValue
 }
+
+enum AppConfiguration {
+    case webService, mock
+}
