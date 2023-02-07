@@ -234,7 +234,6 @@
 				63C60FE62981887E00FC011E /* ViewModel */,
 				6396BB542991359A008567F4 /* Utilities */,
 				63FC0B12297ECD2C00DE78BA /* Controller */,
-				63FC0B10297ECD1200DE78BA /* Model */,
 				63FC0AE0297ECCCB00DE78BA /* AppDelegate.swift */,
 				63FC0AE2297ECCCB00DE78BA /* SceneDelegate.swift */,
 				63FC0AE9297ECCCD00DE78BA /* Assets.xcassets */,
@@ -271,6 +270,7 @@
 				6341E63429812E63005D4E36 /* MovieDetailViewController.swift */,
 				6398AE5A2983C4B00033514F /* ViewControllerProvider.swift */,
 				630EBFBB29814311002DDF22 /* MovieListViewController.swift */,
+				63FC0B10297ECD1200DE78BA /* Model */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

@@ -121,7 +121,7 @@ extension MovieListViewController: UITableViewDelegate {
         if tableView == self.tableView {
             switchTableViewDidSelectRowAt(tableView, viewController: detailVC)
         } else {
-           switchTableViewDidSelectRowAt(searchTableView, viewController: detailVC)
+            switchTableViewDidSelectRowAt(searchTableView, viewController: detailVC)
         }
     }
 }
