@@ -86,13 +86,8 @@ final class MovieListViewController: UIViewController {
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] isNotEmpty in
                 guard let strongSelf = self else { return }
-                if isNotEmpty {
-                    strongSelf.tableView.isHidden = true
-                    strongSelf.searchTableView.isHidden = false
-                } else {
-                    strongSelf.searchTableView.isHidden = true
-                    strongSelf.tableView.isHidden = false
-                }
+                strongSelf.tableView.isHidden = isNotEmpty
+                strongSelf.searchTableView.isHidden = !isNotEmpty
             }).disposed(by: disposeBag)
     }
 
@@ -101,17 +96,17 @@ final class MovieListViewController: UIViewController {
         tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
     }
-    private func switchTableViewDidSelectRowAt(_ selectedtableView: UITableView, viewController: UIViewController) {
-        selectedtableView
-            .rx.modelSelected(Movie.self)
-            .subscribe(onNext: { [weak self] model in
-                guard let strongSelf = self else { return }
 
-                strongSelf.selectedMovie = model
-                viewController.selectedMovie = strongSelf.selectedMovie
-            }).disposed(by: disposeBag)
-        navigationController?.pushViewController(viewController, animated: true)
-    }
+    private func switchTableViewDidSelectRowAt(_ selectedtableView: UITableView, viewController: MovieDetailViewController) {
+             selectedtableView
+                 .rx.modelSelected(Movie.self)
+                 .subscribe(onNext: { model in
+                     viewController.selectedMovie = model
+                 })
+                 .disposed(by: disposeBag)
+             navigationController?.pushViewController(viewController, animated: true)
+     }
+
 }
 
 extension MovieListViewController: UITableViewDelegate {
@@ -124,23 +119,9 @@ extension MovieListViewController: UITableViewDelegate {
         guard let detailVC = ViewControllerProvider.movieDetailViewController else { return }
 
         if tableView == self.tableView {
-            tableView.rx.modelSelected(Movie.self)
-                .subscribe(onNext: { [weak self] model in
-                    guard let strongSelf = self else { return }
-
-                    strongSelf.selectedMovie = model
-                    detailVC.selectedMovie = strongSelf.selectedMovie
-                }).disposed(by: disposeBag)
-            navigationController?.pushViewController(detailVC, animated: true)
+            switchTableViewDidSelectRowAt(tableView, viewController: detailVC)
         } else {
-            searchTableView.rx.modelSelected(Movie.self)
-                .subscribe(onNext: { [weak self] model in
-                    guard let strongSelf = self else { return }
-
-                    strongSelf.selectedMovie = model
-                    detailVC.selectedMovie = strongSelf.selectedMovie
-                }).disposed(by: disposeBag)
-            navigationController?.pushViewController(detailVC, animated: true)
+           switchTableViewDidSelectRowAt(searchTableView, viewController: detailVC)
         }
     }
 }
